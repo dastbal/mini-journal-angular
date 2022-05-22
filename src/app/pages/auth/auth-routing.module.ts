@@ -5,17 +5,17 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./pages/auth/auth.module').then((m) => m.AuthModule),
+      import('./login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'journal',
+    path: 'register',
     loadChildren: () =>
-      import('./pages/journal/journal.module').then((m) => m.JournalModule),
+      import('./register/register.module').then((m) => m.RegisterModule),
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AuthRoutingModule {}

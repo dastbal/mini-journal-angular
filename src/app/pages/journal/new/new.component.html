@@ -1,0 +1,52 @@
+<div class="container">
+  <form [formGroup]="journalForm" (ngSubmit)="createNewJournal()">
+    <fieldset>
+      <legend>New Entry</legend>
+
+      <div class="form-group">
+        <label for="" class="form-label mt-4">Title</label>
+        <input formControlName="title" type="text" class="form-control" />
+        <ng-container
+          *ngIf=" journalForm.get('title')?.touched && journalForm.get('title')?.errors?.['required']"
+        >
+          <div class="danger alert-danger">This field is required</div>
+        </ng-container>
+        <ng-container
+          *ngIf="journalForm.get('title')?.errors?.['minlength']  && journalForm.get('title')?.touched "
+        >
+          <div class="danger alert-danger">Too Short</div>
+        </ng-container>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleTextarea" class="form-label mt-4"
+          >Record your special moments</label
+        >
+        <textarea
+          formControlName="content"
+          class="form-control"
+          id="exampleTextarea"
+          rows="3"
+        ></textarea>
+        <ng-container
+          *ngIf=" journalForm.get('content')?.touched && journalForm.get('content')?.errors?.['required'] "
+        >
+          <div class="danger alert-danger">This field is required</div>
+        </ng-container>
+        <ng-container
+          *ngIf="journalForm.get('content')?.errors?.['minlength']  && journalForm.get('content')?.touched "
+        >
+          <div class="danger alert-danger">Too Short</div>
+        </ng-container>
+      </div>
+
+      <button
+        [disabled]="!journalForm.valid"
+        type="submit"
+        class="btn btn-dark m-3"
+      >
+        Save
+      </button>
+    </fieldset>
+  </form>
+</div>

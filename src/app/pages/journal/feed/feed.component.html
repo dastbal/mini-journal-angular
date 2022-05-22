@@ -1,0 +1,12 @@
+<div class="container">
+  <ng-container *ngFor="let journal of journals">
+    <div class="card border-primary mb-3" style="max-width: 40rem">
+      <div class="card-header">{{ journal.title }}</div>
+      <div class="card-body">
+        <p class="card-text">
+          {{ journal.content }}
+        </p>
+      </div>
+    </div>
+  </ng-container>
+</div>
