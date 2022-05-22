@@ -1,6 +1,6 @@
 # Overview
 
-Django Rest Framework
+Journal using Angular
 
 [Journal Demo](https://www.youtube.com/watch?v=PWzL_aRnZ5o)
 
